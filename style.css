@@ -1,0 +1,9 @@
+body{
+    margin:0;
+    background: hsl(0, 0%, 17%);
+    overflow: hidden;
+    text-align: center;
+}
+#Canvas{
+    background: hsl(0, 0%, 73%);
+}
