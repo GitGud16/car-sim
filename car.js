@@ -1,9 +1,11 @@
 class Car{
-    constructor(x,y,width,height){
+    constructor(x,y,width,height,bg){
         this.x=x
         this.y=y
         this.width=width
         this.height=height
+
+        this.bg=bg
 
         this.speed=0
         this.acceleration=0.2
@@ -75,8 +77,23 @@ class Car{
              this.width,
              this.height
         )
+        // const background=new Image()
+        // background.src='meow.jpg'
+        // background.onload=function(){
+
+        //     ctx.drawImage(background, 0, 0);
+        // }
+        const background=new Image()
+        background.src='meow.jpg'
+
+                const pattern=ctx.createPattern(background,'repeat')
+                ctx.fillStyle=pattern
+
     
-        ctx.fill()
+
+            
+            
+            ctx.fill()
 
         ctx.restore();
     }
