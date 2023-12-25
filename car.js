@@ -13,6 +13,13 @@ class Car{
         this.friction=0.05
         this.angle=0
 
+        this.engineSound= new Audio('engineSound.mp3')
+        this.brakingSound= new Audio('brakingSound.mp3')
+        this.acceleratingSound=new Audio('acceleratingSound.mp3')
+        
+        this.engineSound.volume=0.1
+        this.brakingSound.volume=.5
+        this.acceleratingSound.volume=.3
 
         this.controls=new Controls();
     }
@@ -23,7 +30,22 @@ class Car{
                // this.y-=this.speed;
     }
     #move(){
+        if(this){
+            this.engineSound.play()
+        }
+        if(this.speed!==0){
+            this.acceleratingSound.play()
+            this.engineSound.volume=0.5
+        }
+        if (this.speed===0){
+            this.acceleratingSound.pause()
+            this.engineSound.volume=0.0
+        }
+        if(this.controls.forward==false && this.controls.reverse==false && this.speed!==0){
+            this.brakingSound.play()
+        }
         if (this.controls.forward){
+            
             this.speed+=this.acceleration
             
             
