@@ -21,8 +21,7 @@ class Road{
 
 
         this.borders=[
-            [topLeft,bottomLeft]
-            ,
+            [topLeft,bottomLeft],
             [topRight,bottomRight]
     
     ]

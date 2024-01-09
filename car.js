@@ -17,16 +17,18 @@ class Car{
         this.brakingSound= new Audio('brakingSound.mp3')
         this.acceleratingSound=new Audio('acceleratingSound.mp3')
         
-        this.engineSound.volume=0.1
-        this.brakingSound.volume=.5
-        this.acceleratingSound.volume=.3
+        this.engineSound.volume=0.0 //0.1
+        this.brakingSound.volume=.0 //0.5 
+        this.acceleratingSound.volume=.0 //0.3
 
+        this.sensor=new Sensor(this)
         this.controls=new Controls();
     }
 
-    update(){
+    update(roadBorders){
 
         this.#move()
+        this.sensor.update(roadBorders)
                // this.y-=this.speed;
     }
     #move(){
@@ -35,7 +37,7 @@ class Car{
         }
         if(this.speed!==0){
             this.acceleratingSound.play()
-            this.engineSound.volume=0.5
+            this.engineSound.volume=0.0 //put this to 0.5 for engine sound
         }
         if (this.speed===0){
             this.acceleratingSound.pause()
@@ -118,5 +120,7 @@ class Car{
             ctx.fill()
 
         ctx.restore();
+
+        this.sensor.draw(ctx)
     }
 }
